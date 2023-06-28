@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class Cartpage {
+public class CartPage {
 
-    public Cartpage(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
