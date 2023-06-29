@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/Allin1.feature",
-        glue= {"sd"}
+        glue= {"sd2"}
 )
 public class TestRunner {
 

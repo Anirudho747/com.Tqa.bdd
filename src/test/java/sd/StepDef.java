@@ -1,54 +1,52 @@
 package sd;
 
 import io.cucumber.java.en.*;
-import manager.PageObjectManager;
+import pageObjects.MiscPage;
+import utils.BrowserFactory;
+import utils.ConfigFileReader;
+import utils.PageObjectManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import pageObjects.CartPage;
 import pageObjects.CheckoutPage;
 import pageObjects.HomePage;
-
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 public class StepDef {
 
     WebDriver driver;
     HomePage home;
     CartPage cartPage;
+    MiscPage miscPage;
     CheckoutPage checkoutPage;
     PageObjectManager pageObjectManager;
+    ConfigFileReader configFileReader;
+    BrowserFactory browserFactory;
 
     @Given("^user is on Home Page$")
     public void user_is_on_Home_Page(){
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://shop.demoqa.com/");
+        browserFactory = new BrowserFactory();
+        driver = browserFactory.getDriver();
         pageObjectManager = new PageObjectManager(driver);
+        configFileReader = new ConfigFileReader();
+        home = pageObjectManager.getHomePage();
+        driver.get(configFileReader.getURL());
     }
 
     @When("he searches for Dress")
     public void he_searches_for_dress() {
         driver.findElement(By.xpath("//*[text()='Dismiss']")).click();
-        home = pageObjectManager.getHomePage();
         home.perform_Search();
     }
 
     @When("choose to but the first item")
-    public void choose_to_but_the_first_item() {
-
-        List<WebElement> items = driver.findElements(By.cssSelector(".noo-product-inner"));
-        items.get(0).click();
-
-        Select color = new Select(driver.findElement(By.id("pa_color")));
-        color.selectByIndex(1);
-
-        Select size = new Select(driver.findElement(By.id("pa_size")));
-        size.selectByIndex(1);
-
+    public void choose_to_but_the_first_item()
+    {
+        miscPage = pageObjectManager.getMiscPage();
+        miscPage.perform_Search();
     }
 
     @When("^moves to checkout from mini cart$")
@@ -71,6 +69,6 @@ public class StepDef {
         checkoutPage.check_TermsAndCondition(true);
         checkoutPage.clickOn_PlaceOrder();
 
-        driver.quit();
+        browserFactory.closeDriver();
     }
 }
