@@ -10,15 +10,17 @@ public class CartPageSteps {
 
     CartPage cartPage;
     TestContext testContext;
-//    WebDriver driver;
+
+    public CartPageSteps(TestContext context)
+    {
+        testContext = context;
+        cartPage = testContext.getPageObjectManager().getCartPage();
+    }
+
 
     @When("^moves to checkout from mini cart$")
-    public void moves_to_checkout_from_mini_cart(){
-
-        testContext = new TestContext();
-   //     driver = testContext.getBrowserFactory().getDriver();
-        cartPage = testContext.getPageObjectManager().getCartPage();
-
+    public void moves_to_checkout_from_mini_cart()
+    {
         cartPage.clickOn_Cart();
         cartPage.clickOn_ContinueToCheckout();
     }

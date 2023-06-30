@@ -20,31 +20,21 @@ import java.util.List;
 
 public class MiscPageSteps {
 
-    TestContext testContext;
-//    WebDriver driver;
+      TestContext testContext;
       MiscPage miscPage;
 
-//    public MiscPageSteps()
-//    {
-//        testContext = new TestContext();
-// //       driver = testContext.getBrowserFactory().getDriver();
-//        miscPage = testContext.getPageObjectManager().getMiscPage();
-//    }
+    public MiscPageSteps(TestContext context)
+    {
+        System.out.println("MPS 28");
+        testContext = context;
+        System.out.println("HP 30");
+        miscPage = testContext.getPageObjectManager().getMiscPage();
+    }
 
     @When("choose to but the first item")
     public void choose_to_but_the_first_item()
     {
-
-//        List<WebElement> items = driver.findElements(By.cssSelector(".noo-product-inner"));
-//        items.get(0).click();
-//
-//        Select color = new Select(driver.findElement(By.id("pa_color")));
-//        color.selectByIndex(1);
-//
-//        Select size = new Select(driver.findElement(By.id("pa_size")));
-//        size.selectByIndex(1);
-
-//        miscPage.perform_Search();
-
+        System.out.println("35");
+        miscPage.perform_Search();
     }
 }

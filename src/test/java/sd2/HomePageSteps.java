@@ -18,9 +18,9 @@ public class HomePageSteps {
       TestContext testContext;
       WebDriver driver;
 
-      public HomePageSteps()
+      public HomePageSteps(TestContext context)
       {
-          testContext = new TestContext();
+          testContext = context;
           home = testContext.getPageObjectManager().getHomePage();
           driver = testContext.getBrowserFactory().getDriver();
       }
@@ -36,5 +36,6 @@ public class HomePageSteps {
     {
         driver.findElement(By.xpath("//*[text()='Dismiss']")).click();
         home.perform_Search();
+        System.out.println("HP 39");
     }
 }
