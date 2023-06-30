@@ -1,6 +1,6 @@
 Feature: All Inclusive
 
-  Scenario: Sab Hai Ismei
+  Scenario Outline: Sab Hai Ismei
     Given user is on Home Page
     When he searches for Dress
     And choose to but the first item

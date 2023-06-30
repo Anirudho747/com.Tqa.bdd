@@ -12,6 +12,7 @@ public class TestContext {
     {
         browserFactory    = new BrowserFactory();
         configFileReader  = new ConfigFileReader();
+        System.out.println(3);
         pageObjectManager = new PageObjectManager(browserFactory.getDriver());
     }
 
