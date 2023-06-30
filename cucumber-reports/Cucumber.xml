@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="17.709" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="All Inclusive" name="Sab Hai Ismei" time="17.552">
+<system-out><![CDATA[
+Given user is on Home Page..................................................passed
+When he searches for Dress..................................................passed
+And choose to but the first item............................................passed
+And moves to checkout from mini cart........................................passed
+And enter personal details on checkout page.................................passed
+And place the order.........................................................passed
+]]></system-out>
+</testcase>
+</testsuite>
