@@ -27,7 +27,6 @@ public class BrowserFactory {
         String bName = configFileReader.getBrowser();
         if(bName.equalsIgnoreCase("chrome"))
         {
-            System.out.println(8);
             driver = new ChromeDriver();
         }
         else if(bName.equalsIgnoreCase("firefox"))
